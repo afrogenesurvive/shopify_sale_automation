@@ -46,6 +46,14 @@
 // // Do something with the shop.
 // console.log(shop);
 
+
+
+// Import the Shopify SDK
+import shopify from 'shopify-buy';
+
+// Set the accessToken property
+shopify.accessToken = process.env.SHOPIFY_ACCESS_TOKEN;
+
 // Get the products
 async function getProducts() {
     try {
