@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build" # Replace with the appropriate build command for your project
+
+[[redirects]]
+  from = "/your-js-file.js" # Replace with the desired URL path for your JavaScript file
+  to = "/index.js" # Replace with the actual file name of your JavaScript file
+  status = 200

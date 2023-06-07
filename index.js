@@ -1,4 +1,5 @@
 // Import the Shopify library.
+const { log } = require('console');
 const Shopify = require('shopify');
 
 const shopifyAccessToken = process.env.SHOPIFY_ACCESS_TOKEN;
@@ -29,7 +30,8 @@ function itemAdded(event) {
       throw new Error("The maximum number of free items has been exceeded.");
     } else {
       // Show the user the error.
-      alert("The maximum number of free items has been exceeded.");
+    //   alert("The maximum number of free items has been exceeded.");
+        console.log("order ok",event.data);
     }
   }
 }
