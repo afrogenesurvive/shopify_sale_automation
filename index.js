@@ -27,7 +27,14 @@ function itemAdded(event) {
     // Check if the number of free items in the order is greater than the maximum allowed.
     if (event.data.freeItems > maxFreeItems) {
       // Throw an error.
-      throw new Error("The maximum number of free items has been exceeded.");
+    //   throw new Error("The maximum number of free items has been exceeded.");
+        const eventPayload = {
+            message: "The maximum number of free items has been exceeded.",
+        };
+      
+      // Trigger a custom Shopify event named "custom_error_event".
+        Shopify.Events.trigger('custom_error_event', eventPayload);
+        
     } else {
       // Show the user the error.
     //   alert("The maximum number of free items has been exceeded.");

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopify Admin API</title>
+  <script src="https://sdk.shopify.com/shopify-buy.js"></script>
+</head>
+<body>
+  <script>
+    const shopify = window.shopify;
+
+    // Set the accessToken property
+    shopify.accessToken = 'YourPersonalAccessTokenFromShopify';
+
+    // Listen for an item add to order event
+    shopify.on('itemAddedToOrder', async (event) => {
+      // Check if the item is free
+      if (event.product.price === 0) {
+        // Check if the max free item amount has been reached
+        const maxFreeItemCount = event.order.items.filter(item => item.price > 0).length * 2;
+        if (event.order.freeItems.length >= maxFreeItemCount) {
+          // Show the customer an error
+          console.log('error',event);
+          shopify.renderError('The maximum number of free items has been reached.', 500);
+        } else {
+          // Do nothing
+          console.log('order',event);
+        }
+      } else {
+        // Do nothing
+      }
+    });
+
+    try {
+      const products = await shopify.getProducts();
+
+      for (const product of products) {
+        console.log('product',product);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  </script>
+</body>
+</html>
