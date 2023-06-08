@@ -1,6 +1,2 @@
 [build]
-command = "echo 'Deploying HTML and JS files directly to Netlify'"
-
-[deploy]
-target = "."
-
+command = "npm run build"
