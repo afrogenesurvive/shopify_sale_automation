@@ -2,8 +2,7 @@
 // const ShopifyAPI = require("@shopify/shopify-api");
 // console.log('hello');
 // const client = new ShopifyAPI({
-//   shopUrl: "https://shopthriftnature.com/",
-//   accessToken: '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'
+//   
 // });
 
 // const app = express();
